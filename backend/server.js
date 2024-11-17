@@ -27,7 +27,7 @@ const startServer = async () => {
   try {
     await dbconnect(process.env.MONG0_URI);
     app.listen(port, () => {
-      console.log(`Server is running on port ${port}...`);
+      console.log(`Server is running on port ${port} 🖥️  🖥️  🖥️`);
     });
   } catch (err) {
     console.log(err);
