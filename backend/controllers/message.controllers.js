@@ -17,9 +17,7 @@ const sendMessage = async (req, res) => {
     if (!conversation) {
       conversation = await Conversation.create({
         participants: [senderId, receiverId],
-      }).populate("messages");
-
-      res.status(200).json(conversation.messages);
+      });
     }
 
     // Create a new message document

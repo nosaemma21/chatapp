@@ -22,7 +22,7 @@ const signup = async (req, res) => {
 
     // https://ui-avatars.com/api/?name=John+Doe
 
-    const profilePic = `https://avatar.iran.liara.run/public/boy?username=${value}`;
+    const profilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
 
     const newUser = new User({
       fullName,
@@ -47,7 +47,7 @@ const signup = async (req, res) => {
       res.status(400).json({ error: "Invalid user data" });
     }
   } catch (err) {
-    console.log("Error in signup controller", err.message);
+    console.log("Error in signup controller", err.message, err.stack);
     res.status(500).json({ error: "Internal server error" });
   }
 };
