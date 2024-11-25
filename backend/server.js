@@ -35,7 +35,7 @@ app.get("*", (req, res) => {
 // Starting up the server
 const startServer = async () => {
   try {
-    await dbconnect(process.env.MONG0_URI);
+    await dbconnect(process.env.MONGO_URI);
     server.listen(port, () => {
       console.log(`Server is running on port ${port} 🖥️  🖥️  🖥️`);
     });
