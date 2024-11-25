@@ -8,7 +8,11 @@ const dbconnect = async (url) => {
     });
     console.log("Connected to mongoDB ❤️");
   } catch (err) {
-    console.log("Error connecting to mongodb", err.message);
+    console.log(
+      "Error connecting to mongodb",
+      process.env.PORT,
+      process.env.MONG0_URI
+    );
   }
 };
 
