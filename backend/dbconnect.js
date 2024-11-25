@@ -11,7 +11,8 @@ const dbconnect = async (url) => {
     console.log(
       "Error connecting to mongodb",
       process.env.PORT,
-      process.env.MONG0_URI
+      process.env.MONG0_URI,
+      process.env.JWT_SECRET
     );
   }
 };
