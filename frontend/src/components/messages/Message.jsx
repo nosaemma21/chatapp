@@ -14,6 +14,7 @@ const Message = ({ message }) => {
     : selectedConversation?.profilePic;
 
   const bubbleBgColor = fromMe ? "bg-blue-500" : "";
+  const shakeClass = message.shouldShake ? "shake" : "";
 
   return (
     <div className={`chat ${chatClassName}`}>
@@ -24,16 +25,14 @@ const Message = ({ message }) => {
       </div>
 
       {/* message content */}
-      <div className={`chat-bubble text-white ${bubbleBgColor}`}>
-        {formattedTime}
+      <div className={`chat-bubble text-white ${bubbleBgColor} ${shakeClass}`}>
+        {message.message}
       </div>
       {/* Time */}
-      <div className="chat-footer opacity-50 text-xs flex-gap-1 items-center">
+      <div className="items-center text-xs opacity-50 chat-footer flex-gap-1">
         {formattedTime}
       </div>
     </div>
   );
 };
 export default Message;
-
-// todo stopped at 3:48:07

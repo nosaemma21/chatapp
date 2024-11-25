@@ -8,7 +8,9 @@ const authRoutes = require("./routes/auth.routes.js");
 const messageRoutes = require("./routes/message.routes.js");
 const userRoutes = require("./routes/user.routes.js");
 
-const app = express();
+const { app, server } = require("./socket/socket");
+
+//app export was on this line...
 const port = process.env.PORT;
 
 // middlewares
@@ -26,7 +28,7 @@ app.use("/api/users", userRoutes);
 const startServer = async () => {
   try {
     await dbconnect(process.env.MONG0_URI);
-    app.listen(port, () => {
+    server.listen(port, () => {
       console.log(`Server is running on port ${port} 🖥️  🖥️  🖥️`);
     });
   } catch (err) {

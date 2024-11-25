@@ -1,4 +1,5 @@
 import useGetMessages from "../../hooks/useGetMessages";
+import useListenMessages from "../../hooks/useListenMessages";
 import MessageSkeleton from "../skeletons/MessageSkeletons";
 import Message from "./Message";
 
@@ -7,6 +8,7 @@ import { useEffect, useRef } from "react";
 const Messages = () => {
   const { messages, loading } = useGetMessages();
   const lastMessageRef = useRef();
+  useListenMessages();
 
   useEffect(() => {
     setTimeout(() => {
@@ -15,7 +17,7 @@ const Messages = () => {
   }, [messages]);
 
   return (
-    <div className="px-4 flex-1 overflow-auto">
+    <div className="flex-1 px-4 overflow-auto">
       {!loading &&
         messages.length > 0 &&
         messages.map((message) => (
@@ -27,7 +29,7 @@ const Messages = () => {
       {loading && [...Array(3)].map((_, idx) => <MessageSkeleton key={idx} />)}
 
       {!loading && messages.length === 0 && (
-        <p className="text-center text-xs">
+        <p className="text-xs text-center">
           Send a message to start the conversation
         </p>
       )}
